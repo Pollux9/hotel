@@ -1,0 +1,567 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background: white;
+  color: black;
+  margin: 0px;
+  font-family: 'Fredoka';
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  font-weight: normal;
+}
+
+@keyframes fade-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .main {
+    width: 100%;
+  }
+
+  .main-top-bar {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .main-top-bar-text {
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-grid {
+    overflow: hidden;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 64px 64px 64px 64px 64px 64px;
+    gap: 12px;
+    box-sizing: border-box;
+    padding: 12px;
+  }
+
+  .main-grid-item {
+    background: white;
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: 4vw;
+    box-sizing: border-box;
+    border: 2px solid #f2f2f2;
+    color: crimson;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-grid-item:hover {
+    background: crimson;
+    color: white;
+    border: 2px solid crimson;
+    box-shadow: 0 4px 8px 0 rgba(220, 20, 60, 0.2);
+  }
+
+  .mese-main {
+    display: none;
+    width: 100%;
+  }
+
+  .mese-main-top-bar {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mese-main-top-bar-button-container {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-mese-top-bar-button {
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .main-mese-top-bar-button:hover i {
+    color: white !important;
+  }
+
+  .main-mese-top-bar-button:hover {
+    background: crimson;
+  }
+
+  .main-mese-top-bar-button i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: crimson;
+  }
+
+  .main-mese-title {
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mese-grid {
+    background: #f2f2f2;
+    gap: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-rows: 32px 180px 180px 180px 180px 180px 180px;
+  }
+
+  .mese-grid-item-day {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    box-sizing: border-box;
+    background: crimson;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  .mese-grid-item-casella {
+    border-radius: 8px;
+    text-align: center;
+    background: white;
+    color: black;
+  }
+
+  .mese-grid-item-casella-top {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mese-grid-item-casella-bottom {
+    text-align: center;
+    width: 100%;
+    height: 96px;
+  }
+
+  .mese-grid-item-casella-bottom-button {
+    margin: auto;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 90%;
+    height: 48px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mese-grid-item-casella-bottom-button i {
+    transition: 0.2s;
+    height: 24px;
+    font-size: 3vw;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mese-grid-item-casella-bottom-button:hover {
+    background: #f2f2f2;
+  }
+
+  .mese-grid-item-casella-blank {
+    background: #f2f2f2;
+  }
+
+  .main-info {
+    display: none;
+    width: 100%;
+    height: 100svh;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: 50;
+    background: white;
+  }
+
+  .main-info-top {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 12px;
+  }
+
+  .main-info-top-title {
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+
+  .main-info-top-icon {
+    border-bottom-left-radius: 16px;
+    transition: 0.2s;
+    cursor: pointer;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-info-top-icon i {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: black;
+  }
+
+  .main-info-top-icon:hover {
+    background: #f2f2f2;
+  }
+
+  .main-info-content {
+    width: 100%;
+    min-height: 64px;
+    text-align: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .mese-grid-item-blank {
+    background: #f2f2f2;
+  }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 801px) {
+  .main {
+    width: 100%;
+  }
+
+  .main-top-bar {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .main-top-bar-text {
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-grid {
+    overflow: hidden;
+    width: 100%;
+    height: calc(100dvh - 96px);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 12px;
+    box-sizing: border-box;
+    padding: 12px;
+  }
+
+  .main-grid-item {
+    background: white;
+    box-sizing: border-box;
+    border: 2px solid #f2f2f2;
+    color: crimson;
+    transition: 0.2s;
+    cursor: pointer;
+    font-size: 3vw;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-grid-item h1 {
+    transition: 0.2s;
+  }
+
+  .main-grid-item:hover {
+    color: white;
+    background: crimson;
+    border: 2px solid crimson;
+    box-shadow: 0 4px 8px 0 rgba(220, 20, 60, 0.2);
+  }
+
+  .main-grid-item:hover h1 {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  .mese-main {
+    display: none;
+    width: 100%;
+  }
+
+  .mese-main-top-bar {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .mese-main-top-bar-button-container {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-mese-top-bar-button {
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .main-mese-top-bar-button:hover i {
+    color: white !important;
+  }
+
+  .main-mese-top-bar-button:hover {
+    background: crimson;
+  }
+
+  .main-mese-top-bar-button i {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    color: crimson;
+  }
+
+  .main-mese-title {
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mese-grid {
+    background: #f2f2f2;
+    gap: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 32px 128px 128px 128px 128px 128px 128px;
+  }
+
+  .mese-grid-item-day {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    box-sizing: border-box;
+    background: crimson;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+
+  .mese-grid-item-casella {
+    border-radius: 8px;
+    background: white;
+    color: black;
+  }
+
+  .mese-grid-item-casella-top {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mese-grid-item-casella-bottom {
+    width: 100%;
+    height: 96px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .mese-grid-item-casella-bottom-button {
+    cursor: pointer;
+    transition: 0.2s;
+    width: 30%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px solid #f2f2f2;
+    background: white;
+    border-radius: 1000px;
+  }
+
+  .mese-grid-item-casella-bottom-button i {
+    transition: 0.2s;
+    height: 24px;
+    font-size: 24px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mese-grid-item-casella-bottom-button:hover {
+    background: #f2f2f2;
+  }
+
+  .mese-grid-item-casella-blank {
+    background: #f2f2f2;
+  }
+
+  .main-info {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: 50;
+    background: white
+  }
+
+  .main-info-top {
+    width: 100%;
+    height: 52px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 12px;
+  }
+
+  .main-info-top-title {
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+  }
+
+  .main-info-top-icon {
+    border-bottom-left-radius: 16px;
+    transition: 0.2s;
+    cursor: pointer;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .main-info-top-icon i {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: black;
+  }
+
+  .main-info-top-icon:hover {
+    background: #f2f2f2;
+  }
+
+  .main-info-content {
+    width: 100%;
+    min-height: 64px;
+    text-align: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  .mese-grid-item-blank {
+    background: #f2f2f2;
+  }
+}
